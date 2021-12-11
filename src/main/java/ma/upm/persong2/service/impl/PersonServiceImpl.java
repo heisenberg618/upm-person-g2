@@ -1,7 +1,9 @@
 package ma.upm.persong2.service.impl;
 
 import ma.upm.persong2.model.Person;
+import ma.upm.persong2.repository.PersonRepository;
 import ma.upm.persong2.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,10 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonServiceImpl implements PersonService {
 
+    final PersonRepository personRepository;
+
+    public PersonServiceImpl(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
+
     @Override
     public Person save(Person person) {
-        person.setAge(person.getAge() + 12);
-        person.setName(person.getName() + " UPM");
-        return person;
+        return personRepository.save(person);
     }
 }

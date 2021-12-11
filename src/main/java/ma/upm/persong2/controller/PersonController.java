@@ -20,7 +20,7 @@ public class PersonController {
 
     final PersonService personService;
 
-    public PersonController(@Qualifier("personServiceImpl2") PersonService personService) {
+    public PersonController(PersonService personService) {
         this.personService = personService;
     }
 

@@ -1,14 +1,20 @@
 package ma.upm.persong2.model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * @author : Elattar Saad
  * @version 1.0
  * @since 4/12/2021
  */
+@Entity
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
     private Integer age;
