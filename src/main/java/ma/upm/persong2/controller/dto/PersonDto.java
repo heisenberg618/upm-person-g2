@@ -1,5 +1,7 @@
 package ma.upm.persong2.controller.dto;
 
+import javax.validation.constraints.*;
+
 /**
  * @author : Elattar Saad
  * @version 1.0
@@ -7,9 +9,17 @@ package ma.upm.persong2.controller.dto;
  */
 public class PersonDto {
 
+    @NotNull
     private Long id;
+
+    @NotNull
+    @NotBlank
     private String name;
-    private String age;
+
+    @NotNull
+    @Max(120)
+    @Min(18)
+    private Integer age;
 
     public Long getId() {
         return id;
@@ -27,11 +37,11 @@ public class PersonDto {
         this.name = name;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

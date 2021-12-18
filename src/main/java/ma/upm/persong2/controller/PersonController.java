@@ -1,13 +1,14 @@
 package ma.upm.persong2.controller;
 
+import ma.upm.persong2.controller.dto.PersonDto;
 import ma.upm.persong2.model.Person;
 import ma.upm.persong2.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 /**
  * @author : Elattar Saad
@@ -25,9 +26,14 @@ public class PersonController {
     }
 
 
+    //    @PostMapping("/")
+//    public Person save(@RequestBody Person person) {
+//        return personService.save(person);
+//    }
+
     @PostMapping("/")
-    public Person save(@RequestBody Person person){
-        return personService.save(person);
+    public PersonDto save(@Valid @RequestBody PersonDto personDto) {
+        return personDto;
     }
 
 }
